@@ -11,6 +11,6 @@ body {
     width: 100px;
     height: 20px;
     background-color: red;
-    position: fixed;
+    position: absolute;
     display: block;
 }
