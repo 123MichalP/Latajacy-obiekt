@@ -4,9 +4,8 @@
 }
 
 body {
-    
     text-align: center;
-    animation: 2s infinite alternate flash ease-in-out;
+    background-color: darkred;
 }
 
 .balon {
@@ -47,10 +46,13 @@ body {
 
 @keyframes flash {
     0% {
-        background-color: black;
+        opacity: 0;
+    }
+    75% {
+        opacity: 255;
     }
     100% {
-        background-color: darkred;
+        opacity: 255;
     }
     
 }
@@ -63,9 +65,10 @@ body {
     left: 50%;
     font-size: 6vw;
     text-shadow: 10px 10px 20px red;
-    animation: 2s infinite alternate floatUp ease-in-out, 5.2s infinite alternate rotate ease-in-out;
+    animation: 3s infinite alternate floatUp ease-in-out, 5.2s infinite alternate rotate ease-in-out;
     transition: all 0.2s;
     user-select: none;
+    z-index: 3;
 }
 
 #title:hover {
@@ -74,4 +77,14 @@ body {
     color: white;
     text-shadow: 10px 10px 20px tomato;
     cursor: pointer;
+}
+
+#cover {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0;
+    z-index: 1;
+    animation: 2s infinite alternate flash ease-in-out;
 }
