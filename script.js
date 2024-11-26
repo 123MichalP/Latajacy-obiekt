@@ -11,7 +11,7 @@ var rysujUfo = function (ufoo) {
         left: ufoo.x,
     });
 
-    $(body).append(ufoElement);
+    $('body').append(ufoElement);
 };
 
 var ufo1 = new ufo(100, 100);
