@@ -4,13 +4,18 @@
 }
 
 body {
-    background-color: beige;
+    background-color: darkred;
 }
 
 .balon {
-    width: 100px;
-    height: 20px;
-    background-color: red;
     position: absolute;
     display: block;
+}
+
+h1 {
+    font-family: "Rubik Glitch";
+    font-weight: lighter;
+    text-align: center;
+    font-size: 6vw;
+    text-shadow: 10px 10px 20px red;
 }
