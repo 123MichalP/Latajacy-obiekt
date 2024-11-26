@@ -4,8 +4,9 @@
 }
 
 body {
-    background-color: darkred;
+    
     text-align: center;
+    animation: 2s infinite alternate flash ease-in-out;
 }
 
 .balon {
@@ -42,6 +43,16 @@ body {
     100% {
         transform: translateX(-50%) rotate(6deg);
     } 
+}
+
+@keyframes flash {
+    0% {
+        background-color: black;
+    }
+    100% {
+        background-color: darkred;
+    }
+    
 }
 
 #title {
