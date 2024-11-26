@@ -3,16 +3,19 @@ var Balon = function(x, y) {
     this.y = y;
 };
 
-var RysujBalon = function (balon) {
+Balon.prototype.rysuj = function () {
     var balonHtml = '<img src="balon.png" alt="balon" class="balon">';
-    var balonElement = $(balonHtml);
+
+    this.balonElement = $(balonHtml)
     
-    balonElement.css({
-        left: balon.x,
+    this.balonElement.css({
+        posistion: "absolute",
+        right: this.x + 'px',
+        left: this.y + 'px'
     });
 
-    $('body').append(balonElement);
+    $('body').append(this.balonElement);
 };
 
 var balon1 = new Balon(100, 100);
-RysujBalon(balon1);
+balon1.rysuj();
