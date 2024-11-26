@@ -1,18 +1,18 @@
-var ufo = function(x, y) {
+var Balon = function(x, y) {
     this.x = x;
     this.y = y;
 };
 
-var rysujUfo = function (ufoo) {
-    var ufoHtml = '<div class = "ufo"></div>';
-    var ufoElement = $(ufoHtml);
+var RysujBalon = function (balon) {
+    var balonHtml = '<img src="balon.png" alt="balon" class="balon">';
+    var balonElement = $(balonHtml);
     
-    ufoElement.css({
-        left: ufoo.x,
+    balonElement.css({
+        left: balon.x,
     });
 
-    $('body').append(ufoElement);
+    $('body').append(balonElement);
 };
 
-var ufo1 = new ufo(100, 100);
-rysujUfo(ufo1);
+var balon1 = new Balon(100, 100);
+RysujBalon(balon1);
