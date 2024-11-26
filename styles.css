@@ -5,6 +5,7 @@
 
 body {
     background-color: darkred;
+    text-align: center;
 }
 
 .balon {
@@ -12,10 +13,51 @@ body {
     display: block;
 }
 
-h1 {
+@keyframes floatUp {
+    0% {
+        top:20px;
+    }
+    
+    100% {
+        top:150px;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(10deg), translateX(-50%);
+    }
+
+    25% {
+        transform: rotate(-10deg);
+    }
+    
+    50% {
+        transform: rotate(10deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    
+    100% {
+        transform: rotate(10deg);
+    } 
+}
+
+#title {
     font-family: "Rubik Glitch";
     font-weight: lighter;
     text-align: center;
-    font-size: 6vw;
+    position: fixed;              
+    left: 50%;        
+    font-size: 60px;
     text-shadow: 10px 10px 20px red;
+    animation: 3s infinite alternate floatUp ease-in-out, 8s infinite alternate rotate ease-in-out;
+    transition: all 0.2s;
+}
+
+#title:hover {
+    font-size: 7vw;
+    transition: all 0.2s;
+    cursor: pointer;
 }

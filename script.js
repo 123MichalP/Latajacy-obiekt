@@ -7,7 +7,7 @@ Balon.prototype.rysuj = function () {
     var balonHtml = '<img src="balon.png" alt="balon" class="balon">';
 
     this.balonElement = $(balonHtml)
-    
+
     this.balonElement.css({
         posistion: "absolute",
         right: this.x + 'px',
@@ -17,5 +17,5 @@ Balon.prototype.rysuj = function () {
     $('body').append(this.balonElement);
 };
 
-var balon1 = new Balon(100, 100);
-balon1.rysuj();
+// var balon1 = new Balon(100, 100);
+// balon1.rysuj();
