@@ -8,7 +8,7 @@ Balon.prototype.rysuj = function () {
     var balonHtml = '<img src="balon.png" alt="balon" class="balon">';
 
     this.balonElement = $(balonHtml)
-    
+
     this.balonElement.css({
         position: "absolute",
         left: this.y + 'px',
