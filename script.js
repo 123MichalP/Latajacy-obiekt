@@ -191,5 +191,6 @@ function GameOver() {
         document.getElementById("cover").style.animation = "none";
         document.getElementById("noz").remove();
         document.getElementById("balon").remove();
+        document.getElementById("title").innerHTML = "GAME OVER";
     }
 }
