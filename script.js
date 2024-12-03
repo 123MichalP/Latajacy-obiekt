@@ -75,7 +75,7 @@ $(document).keydown(function(event) {
         balon1.wDol();  
     }
 });
-var Kamien = function(x, y) {
+var Knife = function(x, y) {
     this.x = x;
     this.y = y;
     this.vx = 5; // Prędkość w poziomie
@@ -84,11 +84,11 @@ var Kamien = function(x, y) {
     this.wysokosc = 120; 
 };
 
-Kamien.prototype.rysuj = function () {
-    var kamienHtml = '<img src="rock.png" alt="kamien" class="kamien">';
-    this.kamienElement = $(kamienHtml);
+Knife.prototype.rysuj = function () {
+    var knifeHtml = '<img src="knife.png" alt="knife" class="knife">';
+    this.knifeElement = $(knifeHtml);
     
-    this.kamienElement.css({
+    this.knifeElement.css({
         position: "absolute",
         left: this.x + 'px',
         top: this.y + 'px',
@@ -96,11 +96,11 @@ Kamien.prototype.rysuj = function () {
         height: this.wysokosc + 'px'
     });
 
-    $('body').append(this.kamienElement);
+    $('body').append(this.knifeElement);
 };
 
-// Metoda poruszająca kamieniem i odbijająca go od ścian
-Kamien.prototype.ruch = function () {
+// Metoda poruszająca nożem i odbijająca go od ścian
+Knife.prototype.ruch = function () {
     this.x += this.vx;
     this.y += this.vy;
 
@@ -112,18 +112,18 @@ Kamien.prototype.ruch = function () {
         this.vy = -this.vy;
     }
 
-    this.kamienElement.css({
+    this.knifeElement.css({
         left: this.x + 'px',
         top: this.y + 'px'
     });
 };
 
-var kamien1 = new Kamien(100, 100);
-kamien1.rysuj(); //zakomentowac, zeby usunac kamien
+var knife1 = new Knife(100, 100);
+knife1.rysuj(); //zakomentowac, zeby usunac knife
 
-function animacjaKamienia() {
-    kamien1.ruch();
-    requestAnimationFrame(animacjaKamienia)
+function animacjaKnife() {
+    knife1.ruch();
+    requestAnimationFrame(animacjaKnife)
 }
 
-animacjaKamienia();
+animacjaKnife();
