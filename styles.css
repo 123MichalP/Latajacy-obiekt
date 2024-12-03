@@ -1,109 +1,129 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    text-align: center;
-    background-color: darkred;
-    overflow:hidden;
+  text-align: center;
+  background-color: darkred;
+  overflow: hidden;
 }
 
 .balon {
-    position: absolute;
-    display: block;
+  position: absolute;
+  display: block;
 }
 
 @keyframes floatUp {
-    0% {
-        top:25px;
-    }
-    
-    100% {
-        top:100px;
-    }
+  0% {
+    top: 25px;
+  }
+
+  100% {
+    top: 100px;
+  }
 }
 
 @keyframes rotate {
-    0% {
-        transform: translateX(-50%) rotate(6deg);
-    }
+  0% {
+    transform: translateX(-50%) rotate(6deg);
+  }
 
-    25% {
-        transform: translateX(-50%) rotate(-6deg);
-    }
-    
-    50% {
-        transform: translateX(-50%) rotate(6deg);
-    }
-    75% {
-        transform: translateX(-50%) rotate(-6deg);
-    }
-    
-    100% {
-        transform: translateX(-50%) rotate(6deg);
-    } 
+  25% {
+    transform: translateX(-50%) rotate(-6deg);
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(6deg);
+  }
+  75% {
+    transform: translateX(-50%) rotate(-6deg);
+  }
+
+  100% {
+    transform: translateX(-50%) rotate(6deg);
+  }
 }
 
 @keyframes flash {
-    0% {
-        opacity: 0;
-    }
-    75% {
-        opacity: 255;
-    }
-    100% {
-        opacity: 255;
-    }   
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 255;
+  }
+  100% {
+    opacity: 255;
+  }
 }
 
 #title {
-    font-family: "Rubik Glitch";
-    font-weight: lighter;
-    text-align: center;
-    position: fixed;                  
-    left: 50%;
-    font-size: 6vw;
-    text-shadow: 0px 0px 30px red;
-    animation: 3s infinite alternate floatUp ease-in-out, 5.2s infinite alternate rotate ease-in-out;
-    transition: all 0.2s;
-    user-select: none;
-    z-index: 3;
+  font-family: "Rubik Glitch";
+  font-weight: lighter;
+  color: black;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  font-size: 6vw;
+  text-shadow: 0px 0px 30px red;
+  animation: 3s infinite alternate floatUp ease-in-out,
+    5.2s infinite alternate rotate ease-in-out;
+  transition: all 0.2s;
+  user-select: none;
+  z-index: 3;
 }
 
 #title:hover {
-    font-size: 7vw;
-    transition: all 0.3s;
-    color: white;
-    text-shadow: 0px 0px 30px tomato;
-    cursor: pointer;
+  font-size: 7vw;
+  transition: all 0.3s;
+  color: white;
+  text-shadow: 0px 0px 30px tomato;
+  cursor: pointer;
 }
 
 #cover {
-    position: fixed;
-    width: 100vw;
-    height: 120vh;
-    background-color: black;
-    opacity: 0;
-    z-index: 1;
-    animation: 2s infinite alternate flash ease-in-out;
+  position: fixed;
+  width: 100vw;
+  height: 120vh;
+  background-color: black;
+  opacity: 0;
+  z-index: 1;
+  animation: 2s infinite alternate flash ease-in-out;
 }
 
 #video {
-    z-index: 2;
-    margin-top: -100px;
-    margin-left: -50px;
+  z-index: 2;
+  margin-top: -100px;
+  margin-left: -50px;
 }
 
-#timer {
-    color: white;
-    position: fixed;
-    bottom: 10px;
-    width: 100%;
-    text-align: center;
-    font-size: 2em;
+#timer:not(.hidden) {
+  font-family: "Rubik Glitch";
+  font-weight: lighter;
+  color: white;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  font-size: 4vw;
+  text-shadow: 0px 0px 30px tomato;
+  user-select: none;
+  z-index: 3;
+  transform: translateX(-50%);
 }
 
 .hidden {
-    display: none;
+  font-family: "Rubik Glitch";
+  font-weight: lighter;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  font-size: 20vw;
+  text-shadow: 0px 0px 50px black;
+  user-select: none;
+  color: black;
+  opacity: 0.5;
+  z-index: 0;
+  transform: translateX(-50%);
 }
