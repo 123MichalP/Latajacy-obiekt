@@ -115,8 +115,6 @@ Knife.prototype.ruch = function () {
         });
     }
 
-
-    
 };
 
 var knife1 = new Knife(100, 100);
@@ -133,3 +131,7 @@ setInterval(function() {
     knife1.vx *= 1.2;  
     knife1.vy *= 1.2;  
 }, 10000); 
+
+function gameover() {
+    console.log("test")
+}
