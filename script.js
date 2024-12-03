@@ -171,6 +171,16 @@ function animacja() {
 }
 animacja(); 
 
+// Globalna zmienna czasu
+let czas = 0;
+
+function aktualizujTimer() {
+    czas += 1;
+    document.getElementById('timer').innerText = `Czas: ${czas}s`;
+}
+
+// Uruchomienie timera co sekundę
+setInterval(aktualizujTimer, 1000);
 
 function GameOver() {
     console.log("Game Over");
