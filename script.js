@@ -101,11 +101,22 @@ Knife.prototype.ruch = function () {
     if (this.y <= 0 || this.y + this.wysokosc >= $(window).height()) {
         this.vy = -this.vy;
     }
+    if (this.vx > 0) {
+        this.kamienElement.css({
+            left: this.x + 'px',
+            top: this.y + 'px',
+            transform: 'rotate(' +  (Math.atan((this.vy)/(this.vx)) * 180 / Math.PI +45) + 'deg)'
+        });
+    } else {
+        this.kamienElement.css({
+            left: this.x + 'px',
+            top: this.y + 'px',
+            transform: 'rotate(' +  (Math.atan((this.vy)/(this.vx)) * 180 / Math.PI -135) + 'deg)'
+        });
+    }
 
-    this.knifeElement.css({
-        left: this.x + 'px',
-        top: this.y + 'px'
-    });
+
+    
 };
 
 var knife1 = new Knife(100, 100);
