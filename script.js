@@ -85,7 +85,7 @@ var Kamien = function(x, y) {
 };
 
 Kamien.prototype.rysuj = function () {
-    var kamienHtml = '<img src="rock.png" alt="kamien" class="kamien">';
+    var kamienHtml = '<img src="knife.png" alt="kamien" class="kamien">';
     this.kamienElement = $(kamienHtml);
     
     this.kamienElement.css({
