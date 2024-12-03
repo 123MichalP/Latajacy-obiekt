@@ -7,7 +7,7 @@ var Balon = function(x, y) {
 };
 
 Balon.prototype.rysuj = function () {
-    var balonHtml = '<img src="balon.png" alt="balon" class="balon">';
+    var balonHtml = '<img src="balon.png" alt="balon" class="balon" id="balon">';
 
     this.balonElement = $(balonHtml)
 
@@ -92,7 +92,7 @@ var Knife = function(x, y) {
 };
 
 Knife.prototype.rysuj = function () {
-    var knifeHtml = '<img src="knife.png" alt="knife" class="knife">';
+    var knifeHtml = '<img src="knife.png" alt="knife" class="knife" id="noz">';
     this.knifeElement = $(knifeHtml);
     
     this.knifeElement.css({
@@ -171,9 +171,16 @@ function animacja() {
 }
 animacja(); 
 
-
+var over = 0
 function GameOver() {
-    console.log("Game Over");
-    cancelAnimationFrame(animacjaBalona);
-    cancelAnimationFrame(animacjaKnife);
+    if (over == 0) {
+        over = 1
+        console.log("Game Over");
+        cancelAnimationFrame(animacjaBalona);
+        cancelAnimationFrame(animacjaKnife);
+        document.getElementById("video").innerHTML = "<iframe style=\" pointer-events: none; user-select: none; width: 120vw; height: 120vh;\" width=\"1920\" height=\"1080\" src=\"https://www.youtube.com/embed/AuhYI1LZ3LI?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&showinfo=0&fs=0&disablekb=1&playlist=AuhYI1LZ3LI\" title=\"FREE - Blood Drizzle - Black Screen\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+        document.getElementById("cover").style.animation = "none";
+        document.getElementById("noz").remove();
+        document.getElementById("balon").remove();
+    }
 }

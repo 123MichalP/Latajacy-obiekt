@@ -1,11 +1,13 @@
 * {
     margin: 0;
     padding: 0;
+    
 }
 
 body {
     text-align: center;
     background-color: darkred;
+    overflow:hidden;
 }
 
 .balon {
@@ -81,9 +83,15 @@ body {
 #cover {
     position: fixed;
     width: 100vw;
-    height: 100vh;
+    height: 120vh;
     background-color: black;
     opacity: 0;
     z-index: 1;
     animation: 2s infinite alternate flash ease-in-out;
+}
+
+#video {
+    z-index: 2;
+    margin-top: -100px;
+    margin-left: -50px;
 }
