@@ -15,7 +15,7 @@ Balon.prototype.rysuj = function () {
         position: "absolute",
         left: this.x + 'px',
         top: this.y + 'px',
-        width: "200px",
+        width: "150px",
     });
 
     $('body').append(this.balonElement);
@@ -147,10 +147,10 @@ setInterval(function() {
 function sprawdzKolizje() {
     if (!balon1 || !knife1) return; //czy istnieja
 
-    var balonLeft = balon1.x-30;
-    var balonRight = balon1.x + balon1.balonElement.width()-30;
-    var balonTop = balon1.y-30;
-    var balonBottom = balon1.y + balon1.balonElement.height()-30;
+    var balonLeft = balon1.x;
+    var balonRight = balon1.x + balon1.balonElement.width();
+    var balonTop = balon1.y;
+    var balonBottom = balon1.y + balon1.balonElement.height();
 
     var knifeLeft = knife1.x;
     var knifeRight = knife1.x + knife1.szerokosc;
@@ -172,6 +172,15 @@ function animacja() {
 animacja(); 
 
 var over = 0
+let czas = 0;
+
+function aktualizujTimer() {
+    czas += 1;
+    document.getElementById('timer').innerText = `Czas: ${czas}s`;
+}
+
+setInterval(aktualizujTimer, 1000);
+
 function GameOver() {
     if (over == 0) {
         over = 1
