@@ -140,17 +140,17 @@ function animacjaKnife() {
 animacjaKnife();
 
 setInterval(function() {
-    knife1.vx *= 1.15;  
-    knife1.vy *= 1.15;  
+    knife1.vx *= 1.1;  
+    knife1.vy *= 1.1;  
 }, 10000); //10s
 
 function sprawdzKolizje() {
     if (!balon1 || !knife1) return; //czy istnieja
 
-    var balonLeft = balon1.x;
-    var balonRight = balon1.x + balon1.balonElement.width();
-    var balonTop = balon1.y;
-    var balonBottom = balon1.y + balon1.balonElement.height();
+    var balonLeft = balon1.x-30;
+    var balonRight = balon1.x + balon1.balonElement.width()-30;
+    var balonTop = balon1.y-30;
+    var balonBottom = balon1.y + balon1.balonElement.height()-30;
 
     var knifeLeft = knife1.x;
     var knifeRight = knife1.x + knife1.szerokosc;
