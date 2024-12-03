@@ -1,4 +1,4 @@
-const a = 4; //prędkość balona
+const a = 4; // prędkość balona
 var Balon = function(x, y) {
     this.x = x;
     this.y = y;
@@ -9,7 +9,7 @@ var Balon = function(x, y) {
 Balon.prototype.rysuj = function () {
     var balonHtml = '<img src="balon.png" alt="balon" class="balon" id="balon">';
 
-    this.balonElement = $(balonHtml)
+    this.balonElement = $(balonHtml);
 
     this.balonElement.css({
         position: "absolute",
@@ -43,7 +43,6 @@ Balon.prototype.ruch = function() {
         top: this.y + 'px'
     });
 };
-
 
 $(document).keydown(function(event) {
     switch (event.key) {
@@ -142,10 +141,10 @@ animacjaKnife();
 setInterval(function() {
     knife1.vx *= 1.1;  
     knife1.vy *= 1.1;  
-}, 10000); //10s
+}, 10000); // 10s
 
 function sprawdzKolizje() {
-    if (!balon1 || !knife1) return; //czy istnieja
+    if (!balon1 || !knife1) return; // czy istnieją
 
     var balonLeft = balon1.x;
     var balonRight = balon1.x + balon1.balonElement.width();
@@ -171,23 +170,34 @@ function animacja() {
 }
 animacja(); 
 
-var over = 0
+var over = 0;
 let czas = 0;
+let timerInterval;
 
 function aktualizujTimer() {
     czas += 1;
     document.getElementById('timer').innerText = `Czas: ${czas}s`;
 }
 
-setInterval(aktualizujTimer, 1000);
+function startTimer() {
+    timerInterval = setInterval(aktualizujTimer, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+}
+
+startTimer();
 
 function GameOver() {
     if (over == 0) {
-        over = 1
+        over = 1;
         console.log("Game Over");
         cancelAnimationFrame(animacjaBalona);
         cancelAnimationFrame(animacjaKnife);
-        document.getElementById("video").innerHTML = "<iframe style=\" pointer-events: none; user-select: none; width: 120vw; height: 120vh;\" width=\"1920\" height=\"1080\" src=\"https://www.youtube.com/embed/AuhYI1LZ3LI?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&showinfo=0&fs=0&disablekb=1&playlist=AuhYI1LZ3LI\" title=\"FREE - Blood Drizzle - Black Screen\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+        stopTimer();
+        document.getElementById('timer').classList.remove('hidden'); // Wyświetl timer
+        document.getElementById("video").innerHTML = "<iframe style=\" pointer-events: none; user-select: none; width: 120vw; height: 120vh;\" width=\"1920\" height=\"1080\" src=\"https://www.youtube.com/embed/AuhYI1LZ3LI?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&showinfo=0&fs=0&disablekb=1&playlist=AuhYI1LZ3LI\" title=\"FREE - Blood Drizzle - Black Screen\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>";
         document.getElementById("cover").style.animation = "none";
         document.getElementById("noz").remove();
         document.getElementById("balon").remove();
