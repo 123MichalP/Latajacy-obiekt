@@ -171,7 +171,6 @@ function animacja() {
 }
 animacja(); 
 
-// Globalna zmienna czasu
 let czas = 0;
 
 function aktualizujTimer() {
@@ -179,7 +178,6 @@ function aktualizujTimer() {
     document.getElementById('timer').innerText = `Czas: ${czas}s`;
 }
 
-// Uruchomienie timera co sekundę
 setInterval(aktualizujTimer, 1000);
 
 function GameOver() {
