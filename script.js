@@ -1,7 +1,9 @@
-const a=8; //Szybkosc poruszania sie balonu
+const a = 4; //predkosc balona
 var Balon = function(x, y) {
     this.x = x;
     this.y = y;
+    this.vx = 0; 
+    this.vy = 0; 
 };
 
 Balon.prototype.rysuj = function () {
@@ -21,60 +23,48 @@ Balon.prototype.rysuj = function () {
 
 var balon1 = new Balon(100, 100);
 balon1.rysuj();
-Balon.prototype.wPrawo = function(){
-    if (this.x + this.balonElement.width() < $(window).width()){
-        this.x+=a;
-    }
+
+Balon.prototype.ruch = function() {
+    this.x += this.vx;
+    this.y += this.vy;
 
     this.balonElement.css({
-        left:this.x,
-        top:this.y
+        left: this.x,
+        top: this.y
     });
 };
-Balon.prototype.wLewo = function(){
-    if (this.x>-25){
-    this.x-=a;
-    }
 
-    this.balonElement.css({
-        left:this.x,
-        top:this.y
-    });
-};
-Balon.prototype.wGore = function(){
-    if (this.y>-50){
-        this.y-=a;
-    }
-
-    this.balonElement.css({
-        left:this.x,
-        top:this.y
-    });
-};
-Balon.prototype.wDol = function(){
-    if (this.y + this.balonElement.height() < $(window).height()) { 
-        this.y+=a;
-    }
-
-    this.balonElement.css({
-        left:this.x,
-        top:this.y
-    });
-};
 $(document).keydown(function(event) {
     if (event.key === "ArrowRight") {  
-        balon1.wPrawo();  
+        balon1.vx = a;  
     }
     if (event.key === "ArrowLeft") {  
-        balon1.wLewo();  
+        balon1.vx = -a;  
     }
     if (event.key === "ArrowUp") {  
-        balon1.wGore();  
+        balon1.vy = -a;  
     }
     if (event.key === "ArrowDown") {  
-        balon1.wDol();  
+        balon1.vy = a;  
     }
 });
+
+$(document).keyup(function(event) {
+    if (event.key === "ArrowRight" || event.key === "ArrowLeft") {  
+        balon1.vx = 0;  
+    }
+    if (event.key === "ArrowUp" || event.key === "ArrowDown") {  
+        balon1.vy = 0;  
+    }
+});
+
+function animacjaBalona() {
+    balon1.ruch();
+    requestAnimationFrame(animacjaBalona);
+}
+
+animacjaBalona();
+
 var Knife = function(x, y) {
     this.x = x;
     this.y = y;
@@ -127,3 +117,8 @@ function animacjaKnife() {
 }
 
 animacjaKnife();
+
+setInterval(function() {
+    knife1.vx *= 1.2;  
+    knife1.vy *= 1.2;  
+}, 10000); 
